@@ -33,7 +33,8 @@ const determineWinner = (userChoice, computerChoice) => {
       return "Player wins!";
     else
       return "Computer wins!";
-  }
+  } else
+    return "Not a valid choice... try again.";
 }
 
 // Game loop. (Press Control + c to end game)
@@ -44,6 +45,6 @@ while (true) {
     .trim()
     .toLowerCase();
 
-  console.log("\n" + determineWinner(userInput, getComputerChoice()), "\n");
+  console.log("\n", determineWinner(userInput, getComputerChoice()), "\n");
 
 }
