@@ -1,20 +1,5 @@
 const readline = require('readline-sync');
 
-const getUserChoice = userInput => {
-  userInput = userInput.toLowerCase();
-
-  if (userInput === "rock")
-    return userInput;
-  else if (userInput === "paper")
-    return userInput;
-  else if (userInput === "scissors")
-    return userInput;
-  else if (userInput === "bomb")
-    return userInput;
-  else
-    console.log("Error: Invalid input");
-}
-
 const getComputerChoice = () => {
   var num = Math.floor(Math.random() * 3);
 
@@ -55,7 +40,10 @@ const determineWinner = (userChoice, computerChoice) => {
 
 while (true) {
 
-  var user = readline.question("Rock Paper or Scissors? ");
-  console.log(determineWinner(user, getComputerChoice()), "\n");
+  var userInput = readline.question("Rock Paper or Scissors? ")
+    .trim()
+    .toLowerCase();
+
+  console.log("\n" + determineWinner(userInput, getComputerChoice()), "\n");
 
 }
